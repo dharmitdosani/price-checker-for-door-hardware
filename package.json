@@ -1,0 +1,17 @@
+{
+  "name": "price-checker-for-door-hardware",
+  "version": "1.0.0",
+  "description": "doorhandlecompany price scraping",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dharmit Dosani",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "fast-csv": "^4.3.6",
+    "selenium-webdriver": "^4.0.0-beta.3"
+  }
+}
