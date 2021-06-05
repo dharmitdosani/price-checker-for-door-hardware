@@ -6,14 +6,14 @@ const chrome = require('selenium-webdriver/chrome');
 
 fs.createReadStream('./read-data/urls-to-scrape.csv')
 .pipe(csv())
-.on('data', (row) => {
+.on('data', ({url}) => {
   (async function example() {
     let result = [];
     const ws = fs.createWriteStream('write-data/output.csv', { flags: 'a' });
+    const options = new chrome.Options().headless();
+    let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
     try {
-      const options = new chrome.Options().headless();
-      let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
-      await driver.get(row.url);
+      await driver.get(url);
       const product_main_title = await driver.findElement(By.className('prodHeading')).getText();
       const variations = await driver.findElements(By.css('.basketOption'))
 
@@ -23,13 +23,13 @@ fs.createReadStream('./read-data/urls-to-scrape.csv')
         product_code = product_code.trim().replace(',', '');
         product_price = product_price.replace('£', '');
 
-        result.push({product_main_title, product_code, product_price});
+        result.push({url, product_main_title, product_code, product_price});
       }
       fastcsv
         .write(result, { includeEndRowDelimiter: true })
         .pipe(ws);
     } finally {
-      console.log(`visiting... ${row.url}`)
+      console.log(`visiting... ${url}`)
       await driver.quit();
     }
   })();
