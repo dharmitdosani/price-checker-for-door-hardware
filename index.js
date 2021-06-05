@@ -30,6 +30,7 @@ fs.createReadStream('./read-data/urls-to-scrape.csv')
         .pipe(ws);
     } finally {
       console.log(`visiting... ${row.url}`)
+      await driver.quit();
     }
   })();
 })
