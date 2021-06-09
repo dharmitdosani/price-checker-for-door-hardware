@@ -8,15 +8,11 @@ Make sure you have the latest <b>node.js</b> installed
 
 After cloning this repo - run <code>npm install</code> in a shell
 
-Once this is done - you can copy a chunk of the urls from:
+run <code>npm run split</code> - this splits <code>data/urls-to-scrape.csv</code>
 
-https://github.com/dharmitdosani/price-checker-for-door-hardware/blob/master/read-data/doorhandlecompany-urls.txt
+go to <code>package.json</code> and modify -> config -> fileNumber (values range from 0 to 40 in the current scenario)
 
-and put them here:
-
-https://github.com/dharmitdosani/price-checker-for-door-hardware/blob/master/read-data/urls-to-scrape.csv
-
-run <code>npm start</code> now
+run <code>npm start</code>
 
 ## References:
 
