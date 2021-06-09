@@ -25,3 +25,7 @@ https://www.selenium.dev/selenium/docs/api/javascript/index.html
 https://stackabuse.com/reading-and-writing-csv-files-with-node-js
 
 https://c2fo.github.io/fast-csv/docs/introduction/getting-started
+
+For splitting csv to chunks
+
+https://www.npmjs.com/package/csv-split-stream

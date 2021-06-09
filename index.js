@@ -3,16 +3,18 @@ const fastcsv = require('fast-csv');
 const fs = require('fs');
 const {Builder, By, Key, until} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
+const package = require('./package.json')
 
 let i = 1;
 const waitTime = 120; // in seconds
+const fileNumber = package.config.fileNumber;
 
-fs.createReadStream('./read-data/urls-to-scrape.csv')
+fs.createReadStream(`./inputs/input-${fileNumber}.csv`)
 .pipe(csv())
 .on('data', ({url}) => {
   (async function (id) {
     let result = [];
-    const ws = fs.createWriteStream('write-data/output.csv', { flags: 'a' });
+    const ws = fs.createWriteStream(`./outputs/output-${fileNumber}.csv`, { flags: 'a' });
     const options = new chrome.Options().headless();
     let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
     try {

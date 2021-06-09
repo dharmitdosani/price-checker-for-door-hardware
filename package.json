@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "description": "doorhandlecompany price scraping",
   "main": "index.js",
+  "config": {
+    "fileNumber": 1
+  },
   "scripts": {
     "start": "nodemon index.js",
+    "split": "nodemon split-data.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dharmit Dosani",
   "license": "ISC",
   "dependencies": {
     "csv-parser": "^3.0.0",
+    "csv-split-stream": "^1.0.2",
     "fast-csv": "^4.3.6",
     "selenium-webdriver": "^3.6.0"
   }
