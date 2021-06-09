@@ -4,7 +4,7 @@
   "description": "doorhandlecompany price scraping",
   "main": "index.js",
   "config": {
-    "fileNumber": 1
+    "fileNumber": 0
   },
   "scripts": {
     "start-dev": "nodemon index.js",
