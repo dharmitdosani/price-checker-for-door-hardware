@@ -4,11 +4,12 @@
   "description": "doorhandlecompany price scraping",
   "main": "index.js",
   "config": {
-    "fileNumber": 0
+    "fileNumber": 1
   },
   "scripts": {
-    "start": "nodemon index.js",
-    "split": "nodemon split-data.js",
+    "start-dev": "nodemon index.js",
+    "start": "node index.js",
+    "split": "node split-data.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dharmit Dosani",
